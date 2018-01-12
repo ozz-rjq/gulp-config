@@ -7,10 +7,10 @@ var gulp         = require("gulp"),
 		rename       = require('gulp-rename');
 		imagemin     = require('gulp-imagemin'), 
 		pngquant     = require('imagemin-pngquant'),
-		cache        = require('gulp-cache'),
 		server       = require("browser-sync"),
 		del          = require('del'),
-		run          = require('run-sequence');
+		run          = require('run-sequence'),
+		ghPages      = require('gulp-gh-pages');
 
 gulp.task("clean", function() {
 		return del.sync("dist");
@@ -84,6 +84,11 @@ gulp.task("watch", ['serve', 'style'], function() {
 	gulp.watch("app/less/**/*.less", ['style']);
 	gulp.watch('app/*.html', server.reload);
 	gulp.watch('app/js/**/*.js', server.reload);
+});
+
+gulp.task("deploy", function(){
+	return gulp.src('./dist/**/*')
+    .pipe(ghPages());
 });
 
 gulp.task("default", ["watch"]);
