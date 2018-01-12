@@ -1,24 +1,20 @@
 var gulp         = require("gulp"),
-		plumber      = require('gulp-plumber'),
-		less         = require("gulp-less"),
+    plumber      = require('gulp-plumber'),
+    less         = require("gulp-less"),
 /** sass         = require('gulp-sass'),           */
-		autoprefixer = require('gulp-autoprefixer'),
-		minify       = require('gulp-csso');
-		rename       = require('gulp-rename');
-		imagemin     = require('gulp-imagemin'), 
-		pngquant     = require('imagemin-pngquant'),
-		server       = require("browser-sync"),
-		del          = require('del'),
-		run          = require('run-sequence'),
-		ghPages      = require('gulp-gh-pages');
+    autoprefixer = require('gulp-autoprefixer'),
+    minify       = require('gulp-csso');
+    rename       = require('gulp-rename');
+    imagemin     = require('gulp-imagemin'), 
+    pngquant     = require('imagemin-pngquant'),
+    server       = require("browser-sync"),
+    del          = require('del'),
+    run          = require('run-sequence'),
+    ghPages      = require('gulp-gh-pages');
 
 gulp.task("clean", function() {
 		return del.sync("dist");
 });
-
-gulp.task("clear", function() {
-		return cache.clearAll();
-})
 
 gulp.task("style", function() {
 	gulp.src("app/less/style.less")
@@ -88,7 +84,7 @@ gulp.task("watch", ['serve', 'style'], function() {
 
 gulp.task("deploy", function(){
 	return gulp.src('./dist/**/*')
-    .pipe(ghPages());
+		.pipe(ghPages());
 });
 
 gulp.task("default", ["watch"]);
