@@ -52,5 +52,6 @@ gulp.task('deploy', function() {
 Now you just need to run it.
 
 ```she
+gulp build # Your build configuration
 gulp deploy
 ```
