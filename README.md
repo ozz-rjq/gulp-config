@@ -53,5 +53,6 @@ Now you just need to run it.
 
 ```she
 gulp build # Your build configuration
+node app/js/webp.js # If you want to convert yuor images to progressive webp format
 gulp deploy
 ```
